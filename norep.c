@@ -1,31 +1,31 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdlib.h>  /*Biblioteca para rand e srand*/
+#include <time.h>    /*Biblioteca para time*/
 
 int main(void)
 { 
     
-    int i, j, num, k, m, flag, vet[5];
+    int i, j, num, k, m, flag, vet[5];    /*Declaracao de variaveis*/
     srand(time(NULL));
     for (i=0; i < 100; i++)
     {              
         for (j=0; j < 6; j++)
         {
-            num = rand() % 6;
+            num = rand() % 6;    /*Sorteio de 0 a 5*/
             if( j == 0 )
                 vet[j] = num;
             else
             {
-                flag = 0;
-                for(m=0; m<j; m++)
+                flag = 0;            /*Nao ha repeticao*/
+                for(m=0; m<j; m++)     /*Comparar com os numeros anteriores*/
                 {
                     if(num == vet[m])
-                        flag=1;
+                        flag=1;       /*Ha repeticao*/
                 }
                 if(flag == 0)
                     vet[j] = num;
                 else
-                    j--;
+                    j--;       /*Testa o mesmo j ate dar um numero diferente*/
             }
         }
             for (k=0; k<6; k++)
