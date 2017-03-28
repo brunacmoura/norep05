@@ -2,14 +2,11 @@
 #include <stdlib.h>  /*Biblioteca para rand e srand*/
 #include <time.h>    /*Biblioteca para time*/
 
-int main(void)
-{ 
-    
-    int i, j, num, k, m, flag, vet[5];    /*Declaracao de variaveis*/
-    srand(time(NULL));
-    for (i=0; i < 100; i++)
-    {              
-        for (j=0; j < 6; j++)
+void norep(void)
+{
+
+    int  j, num, k, m, flag, vet[5];    /*Declaracao de variaveis*/
+    for (j=0; j < 6; j++)
         {
             num = rand() % 6;    /*Sorteio de 0 a 5*/
             if( j == 0 )
@@ -30,8 +27,19 @@ int main(void)
         }
             for (k=0; k<6; k++)
                 printf("%d\t", vet[k]);
+      return ;
+}
+
+int main(void)
+{ 
+     srand(time(NULL));
+ int i;   
+    for (i=1; i < 101; i++)
+    {
+        norep();
         printf("\n");
     }
+
 
     return 0;
 }
