@@ -2,7 +2,7 @@
 #include <stdlib.h>  /*Biblioteca para rand e srand*/
 #include <time.h>    /*Biblioteca para time*/
 
-void norep(void)
+void norep(void)   /*Funcao de sorteio de 6 numeros sem reposicao*/
 {
 
     int  j, num, k, m, flag, vet[5];    /*Declaracao de variaveis*/
@@ -32,9 +32,9 @@ void norep(void)
 
 int main(void)
 { 
-     srand(time(NULL));
+     srand(time(NULL));   /*Garante que o programa vai ser diferente pela semente sorteada*/
  int i;   
-    for (i=1; i < 101; i++)
+    for (i=0; i < 100; i++)
     {
         norep();
         printf("\n");
