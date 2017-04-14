@@ -2,16 +2,13 @@
 #include <stdlib.h>  /*Biblioteca para rand e srand*/
 #include <time.h>    /*Biblioteca para time*/
 
-int main(void)
-{ 
-    
-    int i, j, num, k, m, flag, vet[5];    /*Declaracao de variaveis*/
-    srand(time(NULL));
-    for (i=0; i < 100; i++)
-    {              
-        for (j=0; j < 6; j++)
+int norep(int a, int b)   /*Funcao de sorteio sem reposicao*/
+{
+
+    int j, num, k, m, flag, vet[b-a+1];    /*Declaracao de variaveis*/
+    for (j=0; j < (b-a+1); j++)
         {
-            num = rand() % 6;    /*Sorteio de 0 a 5*/
+            num = a + rand() % (b-a+1);    /*Sorteio de a ate b*/
             if( j == 0 )
                 vet[j] = num;
             else
@@ -28,10 +25,21 @@ int main(void)
                     j--;       /*Testa o mesmo j ate dar um numero diferente*/
             }
         }
-            for (k=0; k<6; k++)
+            for (k=0; k < (b-a+1); k++)
                 printf("%d\t", vet[k]);
+      return ;
+}
+
+int main(void)
+{ 
+     srand(time(NULL));   /*Garante que o programa vai ser diferente pela semente sorteada*/
+ int i;   
+    for (i=0; i < 100; i++)
+    {
+        norep(0,5);
         printf("\n");
     }
+
 
     return 0;
 }
